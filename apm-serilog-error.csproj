@@ -6,16 +6,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="Elastic.Apm.NetCoreAll, Version=1.1.1.0, Culture=neutral, PublicKeyToken=ae7400d2c189cf22">
+      <HintPath>NewElasticApmBuild\Elastic.Apm.NetCoreAll.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Elastic.Apm.NetCoreAll" Version="1.1.1" />
     <PackageReference Include="Serilog.AspnetCore" Version="3.0.0" />
     <PackageReference Include="Serilog.Enrichers.Context" Version="4.2.0" />
     <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
+
+
+    <!-- These are dependencies of Elastic.Apm and are pulled by NuGet normally. Since Elastic.Apm
+     is referenced as .dll I added these manually here                                          -->
+    <PackageReference Include="System.Diagnostics.PerformanceCounter" Version="4.6.0" />
+    <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.9.0" />
   </ItemGroup>
 
 </Project>
